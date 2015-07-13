@@ -1,6 +1,5 @@
 FROM centos:7
-RUN yum update -y
-RUN yum install -y ld-linux.so.2 sqlite glibc.i686 libxml2.i686 zlib.i686 mysql MySQL-python libxml2 wget logrotate
+RUN yum install -y deltarpm ld-linux.so.2 sqlite glibc.i686 libxml2.i686 zlib.i686 mysql MySQL-python libxml2 wget logrotate
 RUN groupadd openemm
 RUN useradd -m -g openemm -d /home/openemm -c "OpenEMM-2015" openemm
 
