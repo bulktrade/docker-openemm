@@ -38,7 +38,7 @@ if [ -f /home/openemm/.NOT_CONFIGURED ]; then
 	    mysqladmin -h $MYSQL_PORT_3306_TCP_ADDR -u admin --password=$MYSQL_ENV_MYSQL_PASS create openemm
 		echo -e "[OK]"
 
-		cp openemm-2015.sql openemm-2015.w.sql
+		cp openemm-2015_R2.sql openemm-2015.w.sql
 		sed -i "s/http:\/\/localhost:8080',''/$EOPEN_EMM_URL','$EOPEN_EMM_HOSTNAME'/g" openemm-2015.w.sql
 		sed -i "s/'agnitas'@'localhost'/'agnitas'@'$MYSQL_PORT_3306_TCP_ADDR'/g" openemm-2015.w.sql
 
