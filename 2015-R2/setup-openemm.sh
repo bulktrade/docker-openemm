@@ -63,10 +63,12 @@ sed -i "s/password=\"openemm\"/password=\"$MYSQL_ENV_MYSQL_PASS\"/g" /home/opene
 sed -i "s/smtp.starttls/#smtp.starttls/g" /home/openemm/bin/scripts/semu.py
 sed -i "s/smtp.ehlo/#smtp.ehlo/g" /home/openemm/bin/scripts/semu.py
 
+sed -i "s/DAEMON_OPTIONS(\`Port=smtp,Addr=127.0.0.1, Name=MTA')dnl/dnl DAEMON_OPTIONS(\`Port=smtp,Addr=127.0.0.1, Name=MTA')dnl/g" /etc/mail/sendmail.mc
+echo "INPUT_MAIL_FILTER(\`bav', \`S=unix:/home/openemm/var/run/bav.sock, F=T')dnl" >> /etc/mail/sendmail.mc
+
 sed -i "s/'localhost', 'agnitas', 'openemm'/'$MYSQL_PORT_3306_TCP_ADDR', '$MYSQL_ENV_MYSQL_USER', '$MYSQL_ENV_MYSQL_PASS'/g" /home/openemm/bin/scripts/agn.py
 
 su openemm -c 'sh /home/openemm/bin/sendmail-disable.sh'
-echo "${MAIL_USERNAME_AND_PASSWORD}@${MAIL_HOST}" > /home/openemm/conf/smart-relay
 
 touch /var/log/maillog && chmod 604 /var/log/maillog
 

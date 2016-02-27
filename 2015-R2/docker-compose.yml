@@ -1,5 +1,6 @@
 openemm:
-    image: bulktrade/openemm
+#    image: bulktrade/openemm
+    build: .
     restart: always
     ports:
         - 8080
@@ -16,25 +17,17 @@ openemm:
 #        - 'MAIL_HOST=mx.local'
 #        - 'MAIL_USERNAME_AND_PASSWORD=username:password'
 
-ocron:
-    image: bulktrade/openemm
-    links:
-        - mysql:MYSQL
-        - mail:MAIL
-    command: /start-cron.sh
-    restart: always
-
-mail:
-  image: catatnight/postfix
-  restart: always
-  ports:
-      - 25
-  environment:
-    smtp_user: "openemm:1234567fsdfsg"
-    maildomain: "mx.local"
-
 mysql:
     restart: always
     image: tutum/mysql
     environment:
        - MYSQL_PASS=openemm1241343
+
+mail:
+ image: catatnight/postfix
+ restart: always
+ ports:
+     - 25
+ environment:
+   smtp_user: "openemm:1234567fsdfsg"
+   maildomain: "mx.local"
