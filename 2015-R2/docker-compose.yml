@@ -1,6 +1,5 @@
 openemm:
-#    image: bulktrade/openemm
-    build: .
+    image: bulktrade/openemm
     restart: always
     ports:
         - 8080
