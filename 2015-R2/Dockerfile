@@ -1,5 +1,5 @@
 FROM centos:7
-RUN yum update -y && yum install -y deltarpm ld-linux.so.2 sqlite glibc.i686 libxml2.i686 zlib.i686 mysql MySQL-python libxml2 wget logrotate crontabs sendmail python-setuptools make sendmail-cf && easy_install supervisor
+RUN yum update -y && yum install -y deltarpm ld-linux.so.2 sqlite glibc.i686 libxml2.i686 zlib.i686 mysql MySQL-python libxml2 wget logrotate crontabs python-setuptools make && easy_install supervisor
 RUN groupadd openemm
 RUN useradd -m -g openemm -d /home/openemm -c "OpenEMM-2015" openemm
 

@@ -16,10 +16,10 @@ for ADDRESS in $MAIL_ADDRESSES; do
 	COUNTER=$[$COUNTER+1]
 done
 
-echo "${OPEN_EMM_HOSTNAME}" > /etc/mail/relay-domains
-echo "${OPEN_EMM_HOSTNAME} procmail:/home/openemm/conf/bav/bav.rc" > /etc/mail/mailertable
+#echo "${OPEN_EMM_HOSTNAME}" > /etc/mail/relay-domains
+#echo "${OPEN_EMM_HOSTNAME} procmail:/home/openemm/conf/bav/bav.rc" > /etc/mail/mailertable
 
-make -C /etc/mail
+#make -C /etc/mail
 
 echo "${MAIL_USERNAME_AND_PASSWORD}@${MAIL_HOST}" > /home/openemm/conf/smart-relay
 
