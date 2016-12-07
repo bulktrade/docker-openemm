@@ -10,6 +10,7 @@ RUN wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2
 RUN tar -xvzf jdk-8u45-linux-x64.tar.gz && ln -s jdk1.8.0_45 java && rm jdk-8u45-linux-x64.tar.gz
 RUN wget http://mirror.dkd.de/apache/tomcat/tomcat-8/v8.5.8/bin/apache-tomcat-8.5.8.tar.gz
 RUN tar -xvzf apache-tomcat-8.5.8.tar.gz && ln -s apache-tomcat-8.5.8 tomcat && rm apache-tomcat-8.5.8.tar.gz
+RUN chmod a+x ./tomcat/bin/*.sh
 
 WORKDIR /home/openemm
 RUN wget "http://downloads.sourceforge.net/project/openemm/OpenEMM%20software/OpenEMM%202015/OpenEMM-2015_R3-bin_x64.tar.gz" -O OpenEMM-2015_R3-bin_x64.tar.gz
