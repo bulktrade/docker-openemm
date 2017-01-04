@@ -25,7 +25,7 @@ if [ -z "$(mysqlshow -h $MYSQL_HOST -u $MYSQL_USER --password=$MYSQL_PASS openem
 then
 	echo -n -e "\n=> Create OpenEMM CMS Database: "
 	mysqladmin -f -h $MYSQL_HOST -u $MYSQL_USER --password=$MYSQL_PASS drop openemm_cms 2> /dev/null 1> /dev/null
-	mysqladmin -h $MYSQL_HOST -u $MYSQL_USER --password=$MYSQLL_PASS create openemm_cms
+	mysqladmin -h $MYSQL_HOST -u $MYSQL_USER --password=$MYSQL_PASS create openemm_cms
 	echo -e "[OK]"
 
 	echo -n "=> Import OpenEMM CMS Database: "
