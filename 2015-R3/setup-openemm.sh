@@ -37,7 +37,7 @@ then
 	mysqladmin -h $MYSQL_HOST -u $MYSQL_USER --password=$MYSQL_PASS create openemm
 	echo -e "[OK]"
 
-	cp openemm-2015_R2.sql openemm-2015.w.sql
+	cp openemm-2015_R3.sql openemm-2015.w.sql
 	sed -i "s/http:\/\/localhost:8080',''/$EOPEN_EMM_URL','$EOPEN_EMM_HOSTNAME'/g" openemm-2015.w.sql
 	sed -i "s/'agnitas'@'localhost'/'agnitas'@'$MYSQL_HOST'/g" openemm-2015.w.sql
 
