@@ -11,7 +11,7 @@ EOPEN_EMM_HOSTNAME=$(echo $OPEN_EMM_HOSTNAME | sed -e 's/\//\\\//g' -e 's/\&/\\\
 
 echo -n -e "\n=> Configure OpenEMM ..."
 
-while [ -z "$(mysqlshow -h $MSQL_HOST -u $MYSQL_ROOT_USER --password=$MYSQL_ROOT_PASS mysql 2>/dev/null)" ]
+while [ -z "$(mysqlshow -h $MYSQL_HOST -u $MYSQL_ROOT_USER --password=$MYSQL_ROOT_PASS mysql 2>/dev/null)" ]
 do
 	sleep 1
 	echo -n "."
