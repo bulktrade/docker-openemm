@@ -11,7 +11,7 @@ EOPEN_EMM_HOSTNAME=$(echo $OPEN_EMM_HOSTNAME | sed -e 's/\//\\\//g' -e 's/\&/\\\
 
 echo -n -e "\n=> Configure OpenEMM ..."
 
-while [ -z "$(mysqlshow -h $MSQL_HOST -u $MYSQL_ROOT_USER --password=$MYSQL_ROOT_PASS mysql 2>/dev/null)" ]
+while [ -z "$(mysqlshow -h $MYSQL_HOST -u $MYSQL_ROOT_USER --password=$MYSQL_ROOT_PASS mysql 2>/dev/null)" ]
 do
 	sleep 1
 	echo -n "."
@@ -21,7 +21,7 @@ echo -e "\n-----------------------------------"
 
 cd /usr/share/doc/OpenEMM-2015
 
-if [ -z "$(mysqlshow -h $MYSQL_HOST -u $MYSQL_USER --password=$MYSQL_PASSWORD openemm 2>/dev/null)" ];
+if [ -z "$(mysqlshow -h $MYSQL_HOST -u $MYSQL_USER --password=$MYSQL_PASS openemm 2>/dev/null)" ];
 then
 	echo -n -e "\n=> Create OpenEMM CMS Database: "
 	mysqladmin -f -h $MYSQL_HOST -u $MYSQL_USER --password=$MYSQL_PASS drop openemm_cms 2> /dev/null 1> /dev/null
