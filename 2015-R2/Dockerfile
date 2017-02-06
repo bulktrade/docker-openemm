@@ -27,5 +27,7 @@ COPY setup-openemm.sh /setup-openemm.sh
 
 COPY supervisord.conf /etc/supervisord.conf
 
+VOLUME ["/home/openemm"]
+
 EXPOSE 8080 25
 CMD ["/usr/bin/supervisord"]
